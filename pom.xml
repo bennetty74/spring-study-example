@@ -16,6 +16,7 @@
     </parent>
     <modules>
         <module>spring-docker</module>
+        <module>spring-security</module>
     </modules>
 
     <properties>
