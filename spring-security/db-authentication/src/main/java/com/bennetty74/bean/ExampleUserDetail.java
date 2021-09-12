@@ -17,8 +17,7 @@ public class ExampleUserDetail extends User implements UserDetails{
 
     protected String email;
 
-    public ExampleUserDetail(String username, String password,
-                             Collection<? extends GrantedAuthority> authorities) {
+    public ExampleUserDetail(String username, String password, Collection<? extends GrantedAuthority> authorities) {
         super(username, password, authorities);
     }
 

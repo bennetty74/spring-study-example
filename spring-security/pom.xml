@@ -13,7 +13,7 @@
     <artifactId>spring-security</artifactId>
     <packaging>pom</packaging>
     <modules>
-        <module>quick-start</module>
+        <module>db-authentication</module>
     </modules>
 
     <properties>

@@ -1,17 +1,17 @@
 package com.bennetty74.service;
 
+import com.bennetty74.IndexController;
 import com.bennetty74.bean.ExampleUserDetail;
 import com.bennetty74.mapper.ExampleUserDetailMapper;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.ApplicationContext;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
-import org.springframework.web.context.WebApplicationContext;
 
 import javax.annotation.Resource;
+import java.util.Collections;
+import java.util.HashSet;
 
 /**
  * If you want to authenticate by username and password in database, such as MySQL
@@ -24,12 +24,8 @@ public class ExampleUserDetailServiceImpl implements UserDetailsService {
     @Resource
     BCryptPasswordEncoder passwordEncoder;
 
+    @Resource
     ExampleUserDetailMapper exampleUserDetailMapper;
-
-
-    public ExampleUserDetailServiceImpl(ExampleUserDetailMapper exampleUserDetailMapper){
-        this.exampleUserDetailMapper = exampleUserDetailMapper;
-    }
 
 
     /**
@@ -47,6 +43,8 @@ public class ExampleUserDetailServiceImpl implements UserDetailsService {
 //        return new ExampleUserDetail("mike", passwordEncoder.encode("1234"), Collections.emptyList());
 
         // find in database
-        return exampleUserDetailMapper.selectByUsername(username);
+        ExampleUserDetail exampleUserDetail = exampleUserDetailMapper.selectByUsername(username);
+        return new ExampleUserDetail(exampleUserDetail.getUsername(), exampleUserDetail.getPassword(), new HashSet<>());
     }
+
 }
