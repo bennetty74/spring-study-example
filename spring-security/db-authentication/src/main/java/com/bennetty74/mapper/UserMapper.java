@@ -1,6 +1,7 @@
 package com.bennetty74.mapper;
 
 import com.bennetty74.bean.ExampleUserDetail;
+import com.bennetty74.bean.User;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 import org.springframework.stereotype.Repository;
@@ -10,7 +11,7 @@ import org.springframework.stereotype.Repository;
  * @date 2021.9.12
  */
 @Mapper
-public interface ExampleUserDetailMapper {
+public interface UserMapper {
 
     /**
      * select a user by username
@@ -18,6 +19,6 @@ public interface ExampleUserDetailMapper {
      * @return a user if exist, else return null
      */
     @Select("select * from user where username=#{username}")
-    ExampleUserDetail selectByUsername(String username);
+    User selectByUsername(String username);
 
 }
