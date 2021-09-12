@@ -3,11 +3,13 @@ package com.bennetty74.service;
 import com.bennetty74.bean.ExampleUserDetail;
 import com.bennetty74.mapper.ExampleUserDetailMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.web.context.WebApplicationContext;
 
 import javax.annotation.Resource;
 
@@ -22,8 +24,12 @@ public class ExampleUserDetailServiceImpl implements UserDetailsService {
     @Resource
     BCryptPasswordEncoder passwordEncoder;
 
-    @Resource
     ExampleUserDetailMapper exampleUserDetailMapper;
+
+
+    public ExampleUserDetailServiceImpl(ExampleUserDetailMapper exampleUserDetailMapper){
+        this.exampleUserDetailMapper = exampleUserDetailMapper;
+    }
 
 
     /**

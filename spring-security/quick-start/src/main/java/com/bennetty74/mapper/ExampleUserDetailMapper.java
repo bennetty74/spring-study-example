@@ -3,6 +3,7 @@ package com.bennetty74.mapper;
 import com.bennetty74.bean.ExampleUserDetail;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 
 /**
@@ -10,7 +11,7 @@ import org.springframework.stereotype.Repository;
  * @date 2021.9.12
  */
 @Mapper
-@Repository
+@Component
 public interface ExampleUserDetailMapper {
 
     /**
